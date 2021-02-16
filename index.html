@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html>
+<title>Registrazione Newsletter con checkbox</title>
+<style>
+    .error {
+        color:red;
+    }
+</style>
+<script>
+    //almeno 6 caratteri
+    //deve contenere sia la chiocciola che il punto
+
+    function myFunction() {
+            privacy=form.checkbox.checked;
+            email=form.inputEmail.value;
+            emailLength=email.length;
+            
+            if (email=="") {
+                alert("campo email vuoto");
+                return;
+            }
+
+            if (emailLength<6) {
+                alert("Email troppo corta, deve contere almeno 6 caratteri");
+                return;
+            }
+            
+            chiocciola=email.indexOf("@");
+            punto=email.indexOf(".");
+            
+            if (chiocciola==-1 || punto==-1) {
+                alert("Non c'è la chiocciola o il punto");
+                return;
+            }
+
+            if (privacy) {
+                alert("Iscrizione alla newsletter effettuata");
+            }
+            else {
+                alert("privacy non accettata");
+                return;
+            }
+
+    }
+</script>
+<body>
+    <form name="form">
+        <h2>Form registrazione newsletter</h2>
+        <p><span class="error">* campi richiesti</span></p>
+              Email: <input type="text" id="inputEmail">
+              <span class="error">*</span>
+              <input type="submit" id="submit" value="Iscriviti" onclick="myFunction()"> 
+              <br>
+              <br>
+              <label><input type="checkbox" id="checkbox">Accetta i termini di utilizzo</label>
+              <span class="error">*</span>
+    </form>
+</body>
+</html> 
